@@ -1,0 +1,45 @@
+<!-- show-company.component.html -->
+
+<div class="container" class="w-full surface-card py-8 px-5 sm:px-8">
+    <div class="panel panel-default">
+        <div class="text-center mb-5">
+            <div class="text-900 text-3xl font-medium mb-3">Companies</div>
+        </div>
+        <div class="panel-heading mb-2">
+            <button type="button" pButton pRipple label="Add Company"
+                routerLink="/dashboard/companies/create"></button>
+        </div>
+        <div class="panel-body">
+            <table class="table-latitude">
+                <thead>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Phone Number</th>
+                    <th>URL</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let company of companyData">
+                        <td>{{ company.name }}</td>
+                        <td>{{ company.email }}</td>
+                        <td>{{ company.address }}</td>
+                        <td>{{ company.phoneNumber }}</td>
+
+                        <td>{{ company.url }}</td>
+
+                        <td>
+                            <a style="cursor: pointer;" routerLink="/dashboard/company/edit/{{company.id}}"
+                                title="Edit"><i class="pi pi-pencil"></i></a> &nbsp;&nbsp;
+                            <a style="cursor: pointer;" title="Delete"><i class="pi pi-trash"></i></a>
+                        </td>
+                    </tr>
+
+                    <tr *ngIf="companyData?.length === 0">
+                        <td colspan="6" class="text-center">No company data available.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

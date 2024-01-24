@@ -1,0 +1,47 @@
+// your-component.component.scss
+
+.toggle-container {
+    display: flex;
+    flex-direction: column;
+  
+    input[type="checkbox"] {
+      display: none;
+  
+      + label {
+        cursor: pointer;
+        position: relative;
+        padding-left: 30px;
+  
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 20px;
+          height: 20px;
+          border: 2px solid #333;
+          background-color: #fff;
+        }
+  
+        &::after {
+          content: '';
+          position: absolute;
+          left: 6px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: #333;
+          opacity: 0;
+          transition: opacity 0.2s;
+        }
+      }
+  
+      &:checked + label::after {
+        opacity: 1;
+      }
+    }
+  }
+  

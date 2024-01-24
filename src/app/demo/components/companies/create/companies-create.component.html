@@ -1,0 +1,37 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div>
+        <div class="w-full surface-card py-8 px-5 sm:px-8">
+            <a routerLink="/dashboard/companies"><i class="pi pi-arrow-left" style="font-size: 1.5rem"></i></a>
+            <div class="text-center mb-5">
+                <div class="text-900 text-3xl font-medium mb-3">Create Company</div>
+            </div>
+
+            <div>
+                <label for="name" class="block text-900 text-xl font-medium mb-2">Name</label>
+                <input id="name" formControlName="name" type="text" placeholder="Company Name" pInputText
+                    class="w-full md:w-30rem mb-5" style="padding:1rem">
+
+                <label for="email" class="block text-900 font-medium text-xl mb-2">Email</label>
+                <input id="email" formControlName="email" type="text" placeholder="Company Email" pInputText
+                    class="w-full md:w-30rem mb-5" style="padding:1rem">
+
+                <label for="phoneNumber" class="block text-900 font-medium text-xl mb-2">Phone Number</label>
+                <input id="phoneNumber" formControlName="phoneNumber" type="text" placeholder="Company Phone Number"
+                    pInputText class="w-full md:w-30rem mb-5" style="padding:1rem">
+
+
+                <label for="url" class="block text-900 font-medium text-xl mb-2">URL</label>
+                <input id="url" formControlName="url" type="text" placeholder="Company url" pInputText
+                    class="w-full md:w-30rem mb-5" style="padding:1rem">
+
+                <label for="address" class="block text-900 font-medium text-xl mb-2">Address</label>
+                <input id="address" formControlName="address" type="text" placeholder="Company Address" pInputText
+                    class="w-full md:w-30rem mb-5" style="padding:1rem">
+
+
+                <br>
+                <button type="submit" pButton pRipple label="Submit" class=""></button>
+            </div>
+        </div>
+    </div>
+</form>

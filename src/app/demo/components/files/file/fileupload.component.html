@@ -1,0 +1,15 @@
+<div class="grid">
+    <div class="col-12">
+        <div class="card">
+            <p-fileUpload mode="basic" chooseLabel="Choose" name="demo[]" (onSelect)="onUpload($event)"
+            [multiple]="true" accept="image/*" [maxFileSize]="1000000"></p-fileUpload>
+
+            <br>
+            <br>
+
+            <!-- submit button -->
+            <p-button label="Submit" (click)="onSubmit()"></p-button>
+
+        </div>
+    </div>
+</div>

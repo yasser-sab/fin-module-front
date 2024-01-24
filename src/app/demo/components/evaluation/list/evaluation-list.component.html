@@ -1,0 +1,50 @@
+<!-- show-company.component.html -->
+
+<div class="container" class="w-full surface-card py-8 px-5 sm:px-8">
+    <div class="panel panel-default">
+        <div class="text-center mb-5">
+            <div class="text-900 text-3xl font-medium mb-3">Evaluation</div>
+        </div>
+        <div class="panel-heading mb-2">
+            <button type="button" pButton pRipple label="New Evaluation"
+                routerLink="/dashboard/evaluation/create"></button>
+        </div>
+        <div class="panel-body">
+            <table class="table-latitude">
+                <thead>
+                    <th>pedagogical Quality</th>
+                    <th>pace</th>
+                    <th>course Support</th>
+                    <th>practical Exercises</th>
+                    <th>mastery Of Subject</th>
+                    <th>participant</th>
+                    <th>trainer</th>
+                    <th>trainingSession</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let company of myData">
+                        <td>{{ company.pedagogicalQuality }}</td>
+                        <td>{{ company.pace }}</td>
+                        <td>{{ company.courseSupport }}</td>
+                        <td>{{ company.practicalExercises }}</td>
+                        <td>{{ company.masteryOfSubject }}</td>
+                        <td>{{ company.participantId }}</td>
+                        <td>{{ company.trainerId }}</td>
+                        <td>{{ company.trainingSessionId }}</td>
+
+                        <td>
+                            <a style="cursor: pointer;" routerLink="/dashboard/evaluation/edit/{{company.id}}"
+                                title="Edit"><i class="pi pi-pencil"></i></a> &nbsp;&nbsp;
+                            <a style="cursor: pointer;" title="Delete"><i class="pi pi-trash"></i></a>
+                        </td>
+                    </tr>
+
+                    <tr *ngIf="myData?.length === 0">
+                        <td colspan="6" class="text-center">No company data available.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

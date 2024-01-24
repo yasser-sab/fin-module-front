@@ -1,0 +1,45 @@
+<!-- show-costs.component.html -->
+
+<div class="container" class="w-full surface-card py-8 px-5 sm:px-8">
+    <div class="panel panel-default">
+        <div class="text-center mb-5">
+            <div class="text-900 text-3xl font-medium mb-3">Costs</div>
+        </div>
+        <div class="panel-heading mb-2">
+            <button type="button" pButton pRipple label="Add Costs"
+                routerLink="/dashboard/costs/create"></button>
+        </div>
+        <div class="panel-body">
+            <table class="table-latitude">
+                <thead>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Phone Number</th>
+                    <th>URL</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let costs of costsData">
+                        <td>{{ costs.name }}</td>
+                        <td>{{ costs.email }}</td>
+                        <td>{{ costs.address }}</td>
+                        <td>{{ costs.phoneNumber }}</td>
+
+                        <td>{{ costs.url }}</td>
+
+                        <td>
+                            <a style="cursor: pointer;" routerLink="/dashboard/costs/edit/{{costs.id}}"
+                                title="Edit"><i class="pi pi-pencil"></i></a> &nbsp;&nbsp;
+                            <a style="cursor: pointer;" title="Delete"><i class="pi pi-trash"></i></a>
+                        </td>
+                    </tr>
+
+                    <tr *ngIf="costsData?.length === 0">
+                        <td colspan="6" class="text-center">No costs data available.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

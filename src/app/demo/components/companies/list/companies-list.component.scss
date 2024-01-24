@@ -1,0 +1,34 @@
+
+$lfs-blue: #8183F4;
+$lfs-grey: black;
+
+.table-latitude {
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+    thead {
+        th {
+            text-transform: uppercase;
+            text-align: center;
+            padding: 10px;
+            color: $lfs-blue;
+            border: 1px solid #EAD6FD;
+        }
+    }
+    tbody {
+       
+        tr {
+            border-bottom: 1px solid #EAD6FD;
+            color: $lfs-grey;
+            td {
+                padding: 10px;
+                border: 1px solid #EAD6FD;
+                
+            }
+            th {
+                padding-left: 10px;
+                border: 1px solid #EAD6FD;
+            }
+        }
+    }
+}

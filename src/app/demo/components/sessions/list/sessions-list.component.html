@@ -1,0 +1,48 @@
+<!-- show-sessions.component.html -->
+
+<div class="container" class="w-full surface-card py-8 px-5 sm:px-8">
+    <div class="panel panel-default">
+        <div class="text-center mb-5">
+            <div class="text-900 text-3xl font-medium mb-3">Sessions</div>
+        </div>
+        <div class="panel-heading mb-2">
+            <button type="button" pButton pRipple label="Create Sessions"
+                routerLink="/dashboard/sessions/create"></button>
+        </div>
+        <div class="panel-body">
+            <table class="table-latitude">
+                <thead>
+                    <th>Title</th>
+                    <th>Hours</th>
+                    <th>Cost</th>
+                    <th>Trainer</th>
+                    <th>Company</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let sessions of sessionsData">
+                        <td>{{ sessions.title }}</td>
+                        <td>{{ sessions.hours }}</td>
+                        <td>{{ sessions.cost }}</td>
+                        <td>{{ sessions?.trainerResponseDto?.name }}</td>
+                        <td>{{ sessions?.companyRes?.name }}</td>
+                        <td>{{ sessions.startDate | date }}</td>
+                        <td>{{ sessions.endDate | date }}</td>
+
+                        <td>
+                            <!-- <a style="cursor: pointer;" routerLink="/dashboard/sessions/edit/{{sessions.id}}"
+                                title="Edit"><i class="pi pi-pencil"></i></a> &nbsp;&nbsp; -->
+                            <a (click)="deleteData(sessions.id)" style="cursor: pointer;" title="Delete"><i class="pi pi-trash"></i></a>
+                        </td>
+                    </tr>
+
+                    <tr *ngIf="sessionsData?.length === 0">
+                        <td colspan="6" class="text-center">No sessions data available.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<!-- show-trainer.component.html -->
+
+  <div class="container" class="w-full surface-card py-8 px-5 sm:px-8">
+    <div class="panel panel-default">
+        <div class="text-center mb-5">
+            <div class="text-900 text-3xl font-medium mb-3">Trainer Data</div>
+        </div>
+        <div class="panel-heading mb-2">
+            <button type="button" pButton pRipple label="Add Trainer"  routerLink="/dashboard/trainer/add"></button> 
+        </div>
+        <div class="panel-body">
+            <table class="table-latitude">
+                  <thead>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Remarks</th>
+                      <th>Skills</th>
+                      <th>Action</th>
+                </thead>
+                <tbody>
+                    <tr  *ngFor="let trainer of trainerData">
+                        <td>{{ trainer.name }}</td>
+                        <td>{{ trainer.email }}</td>
+                        <td>{{ trainer.remarks }}</td>
+                        <td>
+                            <span *ngFor="let skill of trainer.skills">
+                              {{ skill.name }} ,
+                            </span>
+                        </td>
+                        <td>
+                            <a style="cursor: pointer;" routerLink="/dashboard/trainer/edit/{{trainer.id}}" title="Edit"><i class="pi pi-pencil" ></i></a> &nbsp;&nbsp;
+                            <a style="cursor: pointer;" (click)="deleteData(trainer.id)" title="Delete"><i class="pi pi-trash"></i></a>
+                        </td>
+                    </tr>
+
+                    <tr *ngIf="trainerData?.length === 0">
+                      <td colspan="4" class="text-center">No trainer data available.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+  

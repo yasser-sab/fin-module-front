@@ -1,0 +1,46 @@
+<!-- show-participant.component.html -->
+
+<div class="container" class="w-full surface-card py-8 px-5 sm:px-8">
+    <div class="panel panel-default">
+        <div class="text-center mb-5">
+            <div class="text-900 text-3xl font-medium mb-3">Participants</div>
+        </div>
+        <div class="panel-heading mb-2">
+            <button type="button" pButton pRipple label="Create Participant"
+                routerLink="/dashboard/participant/create"></button>
+        </div>
+        <div class="panel-body">
+            <table class="table-latitude">
+                <thead>
+                    <th>name</th>
+                    <th>surname</th>
+                    <th>dob</th>
+                    <th>city</th>
+                    <th>email</th>
+                    <th>Phone</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let participant of participantData">
+                        <td>{{ participant.name }}</td>
+                        <td>{{ participant.surname }}</td>
+                        <td>{{ participant.dateOfBirth }}</td>
+                        <td>{{ participant?.city}}</td>
+                        <td>{{ participant?.email }}</td>
+                        <td>{{ participant.phoneNumber}}</td>
+
+                        <td>
+                            <a style="cursor: pointer;" routerLink="/dashboard/participant/edit/{{participant.id}}"
+                                title="Edit"><i class="pi pi-pencil"></i></a> &nbsp;&nbsp;
+                            <a style="cursor: pointer;" title="Delete"><i class="pi pi-trash"></i></a>
+                        </td>
+                    </tr>
+
+                    <tr *ngIf="participantData?.length === 0">
+                        <td colspan="6" class="text-center">No participant data available.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

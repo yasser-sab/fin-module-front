@@ -1,0 +1,133 @@
+<div class="grid">
+
+    <!-- Admin Dashboard -->
+    <div class="admin-dashboard col-12" *ngIf="isAdmin">
+        <h3>Admin Dashboard</h3>
+
+        <!-- Training Summary -->
+        <div class="card mb-4">
+            <h3>Training Summary</h3>
+            <div class="flex justify-content-between mb-3">
+                <div>
+                    <span class="block text-500 font-medium mb-3">Total Sessions: 20</span>
+                    <div class="text-900 font-medium text-xl">Average Score: 88%</div>
+                </div>
+                <div>
+                    <span class="block text-500 font-medium mb-3">Trainers: 5</span>
+                    <div class="text-900 font-medium text-xl">Companies: 10</div>
+                </div>
+                <div>
+                    <span class="block text-500 font-medium mb-3">Total Costs: $15,000</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Links for Admin -->
+        <div class="card mb-0">
+            <h3>Quick Links</h3>
+            <div class="flex flex-wrap gap-3">
+                <a routerLink="/dashboard/sessions" class="text-blue-500">Manage Sessions</a>
+                <a routerLink="/dashboard/trainer" class="text-blue-500">Manage Trainers</a>
+                <a routerLink="/dashboard/companies" class="text-blue-500">Manage Companies</a>
+                <a  routerLink="/dashboard/costs"  class="text-blue-500">Manage Costs</a>
+                <a  routerLink="/dashboard/evaluation"  class="text-blue-500">Manage Evaluation</a>
+                <a  routerLink="/dashboard/training-registration"  class="text-blue-500">Manage Registration</a>
+                <a  routerLink="/dashboard/participant"  class="text-blue-500">Manage Participants</a>
+            </div>
+        </div>
+
+        <!-- Trainers List -->
+        <div class="card mb-4 mt-4">
+            <h3>Top Trainers List</h3>
+            <ul>
+                <li>Trainer 1</li>
+                <li>Trainer 2</li>
+                <li>Trainer 3</li>
+                <!-- Add more trainers as needed -->
+            </ul>
+        </div>
+
+        <!-- Companies -->
+        <div class="card mb-4">
+            <h3>Top Companies</h3>
+            <ul>
+                <li>Company A</li>
+                <li>Company B</li>
+                <li>Company C</li>
+                <!-- Add more companies as needed -->
+            </ul>
+        </div>
+
+        <!-- Costs -->
+        <div class="card mb-0">
+            <h3>Costs</h3>
+            <div class="flex justify-content-between mb-3">
+                <div>
+                    <span class="block text-500 font-medium mb-3">Total Costs: $15,000</span>
+                    <div class="text-900 font-medium text-xl">Average Cost per Session: $750</div>
+                </div>
+                <div>
+                    <span class="block text-500 font-medium mb-3">Highest Cost Session: $2,500</span>
+                    <div class="text-900 font-medium text-xl">Lowest Cost Session: $500</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Participant Dashboard -->
+    <div class="participant-dashboard col-12" *ngIf="isParticipant">
+        <h3>Welcome, {{user.username}}!</h3>
+
+        <!-- Steps for Participant -->
+        <div class="dashboard-steps">
+            <!-- Each step is represented as a card -->
+            <div class="card">
+                <h4>Step 1: Access to the Homepage</h4>
+                <p>Visit the public homepage to explore available training sessions.</p>
+                <a href="/homepage" class="btn btn-primary">Go to Homepage</a>
+            </div>
+
+            <div class="card">
+                <h4>Step 2: Selection of a Training Session</h4>
+                <p>Find a training session of interest and click on it to access more details.</p>
+                <a href="/training-session-details" class="btn btn-primary">View Training Session</a>
+            </div>
+
+            <div class="card">
+                <h4>Step 3: Registration Form</h4>
+                <p>Fill out the registration form to secure your spot in the training session.</p>
+                <a href="/registration-form" class="btn btn-primary">Complete Registration</a>
+            </div>
+
+            <div class="card">
+                <h4>Step 4: Receipt of Confirmation</h4>
+                <p>Check your email for a confirmation with details about the training session.</p>
+                <!-- Additional information from the confirmation email can be displayed here -->
+            </div>
+
+            <div class="card">
+                <h4>Step 5: Participation in the Training Session</h4>
+                <p>On the scheduled date, attend the training session and follow the course delivered by the trainer.</p>
+            </div>
+
+            <div class="card">
+                <h4>Step 6: Receipt of Evaluation Link</h4>
+                <p>After the training session, check your email for an evaluation link.</p>
+                <a href="/evaluation-form" class="btn btn-primary">Complete Evaluation</a>
+            </div>
+
+            <div class="card">
+                <h4>Step 7: Completion of the Evaluation Form</h4>
+                <p>Provide ratings and comments on the trainer's performance.</p>
+                <!-- Evaluation form content goes here -->
+            </div>
+
+            <div class="card">
+                <h4>Step 8: Return to the Homepage</h4>
+                <p>After completing the evaluation, return to the homepage to explore other training sessions.</p>
+                <a href="/homepage" class="btn btn-primary">Back to Homepage</a>
+            </div>
+        </div>
+    </div>
+
+</div>
