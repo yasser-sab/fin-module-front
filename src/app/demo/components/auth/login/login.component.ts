@@ -33,14 +33,14 @@ export class LoginComponent {
     }
 
     ngOnInit() {
-      console.log("check is loggedIn::: "+this.localstorageService.isLoggedIn)
-        if(this.localstorageService.isLoggedIn()){
-            this.router.navigate(['/']);
-          }
-        this._initForm();
-        this.loginForm.valueChanges.subscribe(data => {
-            this.formData = data;
-        })
+      // console.log("check is loggedIn::: "+this.localstorageService.isLoggedIn)
+      //   if(this.localstorageService.isLoggedIn()){
+      //       this.router.navigate(['/']);
+      //     }
+      //   this._initForm();
+      //   this.loginForm.valueChanges.subscribe(data => {
+      //       this.formData = data;
+      //   })
     }
 
     get f() { return this.loginForm.controls; }

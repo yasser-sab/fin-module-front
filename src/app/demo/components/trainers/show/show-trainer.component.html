@@ -18,22 +18,22 @@
                       <th>Action</th>
                 </thead>
                 <tbody>
-                    <tr  *ngFor="let trainer of trainerData">
+                    <tr  *ngFor="let trainer of trainers">
                         <td>{{ trainer.name }}</td>
                         <td>{{ trainer.email }}</td>
                         <td>{{ trainer.remarks }}</td>
                         <td>
-                            <span *ngFor="let skill of trainer.skills">
+                            <span *ngFor="let skill of trainer.skillsList">
                               {{ skill.name }} ,
                             </span>
                         </td>
                         <td>
-                            <a style="cursor: pointer;" routerLink="/dashboard/trainer/edit/{{trainer.id}}" title="Edit"><i class="pi pi-pencil" ></i></a> &nbsp;&nbsp;
-                            <a style="cursor: pointer;" (click)="deleteData(trainer.id)" title="Delete"><i class="pi pi-trash"></i></a>
+                            <a style="cursor: pointer;" routerLink="/dashboard/trainer/edit/{{trainer.id}}" title="Edit"><i class="fa fa-pencil" ></i></a> &nbsp;&nbsp;
+                            <a style="cursor: pointer;" (click)="deleteData(trainer.id)" title="Delete"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
 
-                    <tr *ngIf="trainerData?.length === 0">
+                    <tr *ngIf="trainers?.length === 0">
                       <td colspan="4" class="text-center">No trainer data available.</td>
                     </tr>
                 </tbody>

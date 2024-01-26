@@ -21,7 +21,7 @@
                     <th>Action</th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let participant of participantData">
+                    <tr *ngFor="let participant of participants">
                         <td>{{ participant.name }}</td>
                         <td>{{ participant.surname }}</td>
                         <td>{{ participant.dateOfBirth }}</td>
@@ -31,12 +31,12 @@
 
                         <td>
                             <a style="cursor: pointer;" routerLink="/dashboard/participant/edit/{{participant.id}}"
-                                title="Edit"><i class="pi pi-pencil"></i></a> &nbsp;&nbsp;
-                            <a style="cursor: pointer;" title="Delete"><i class="pi pi-trash"></i></a>
+                                title="Edit"><i class="fa fa-pencil"></i></a> &nbsp;&nbsp;
+                            <a style="cursor: pointer;" title="Delete"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
 
-                    <tr *ngIf="participantData?.length === 0">
+                    <tr *ngIf="participants?.length === 0">
                         <td colspan="6" class="text-center">No participant data available.</td>
                     </tr>
                 </tbody>

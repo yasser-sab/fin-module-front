@@ -2,7 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalstorageService } from 'src/app/_shared/localstorage.service';
+import Trainer from 'src/app/demo/models/trainers';
 import { AuthService } from 'src/app/demo/service/auth.service';
+import { TrainerService } from 'src/app/demo/service/trainer/trainer.service';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
 import { environment } from 'src/environments/environment';
 
@@ -13,10 +15,13 @@ import { environment } from 'src/environments/environment';
 })
 export class ShowTrainerComponent implements OnInit {
 
-  trainerData: any[] = [];
+  // trainerData: any[] = [];
+  trainers:Trainer[]=[];
   baseUrl = environment.baseUrl;
 
-  constructor(public router: Router, private http: HttpClient, private authService: AuthService,) { }
+  constructor(public router: Router, private http: HttpClient, private authService: AuthService,
+    private trainerService:TrainerService
+    ) { }
 
 
   ngOnInit() {
@@ -25,25 +30,27 @@ export class ShowTrainerComponent implements OnInit {
 
   getListData() {
     // Fetch training session data directly in the component
-    this.http.get<any[]>('http://localhost:8787/api/trainer').subscribe((data) => {
-      this.trainerData = data;
-    });
+    // this.http.get<any[]>('http://localhost:8787/api/trainer').subscribe((data) => {
+    //   this.trainerData = data;
+    // });
+    
+    this.trainers=this.trainerService.getAll();
   }
 
 
   deleteData(id){
-    let apiURL = this.baseUrl + "/api/trainer/" +id;
+    // let apiURL = this.baseUrl + "/api/trainer/" +id;
 
-    let formData: any = {};
+    // let formData: any = {};
 
-    this.authService.sendDeleteRequest(apiURL, formData).subscribe(
-      (res: any) => {
-        this.getListData();
+    // this.authService.sendDeleteRequest(apiURL, formData).subscribe(
+    //   (res: any) => {
+    //     this.getListData();
 
-      }, (error) => {
-        console.log(error);
-      }
-    )
+    //   }, (error) => {
+    //     console.log(error);
+    //   }
+    // )
   }
 
 }

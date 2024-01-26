@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import TrainingSession from 'src/app/demo/models/trainingSession';
 import { AuthService } from 'src/app/demo/service/auth.service';
+import { TrainingSessionService } from 'src/app/demo/service/trainingSession/training-session.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -11,30 +13,36 @@ import { environment } from 'src/environments/environment';
 })
 export class SessionsListComponent {
 
-  sessionsData: any[] = []; 
-  baseUrl = environment.baseUrl;
+  trainingSessions: TrainingSession[] = []; 
+  // baseUrl = environment.baseUrl;
 
-  constructor( public router: Router,private http:HttpClient,private authService: AuthService) { }
+  constructor( public router: Router,private http:HttpClient,private authService: AuthService,private trainingSessionService:TrainingSessionService) { 
+    this.getAll();
+  }
 
   ngOnInit() {
     // Fetch training session data directly in the component
-    this.http.get<any[]>('http://localhost:8787/api/training-session').subscribe((data) => {
-      this.sessionsData = data;
-    });
+    // this.http.get<any[]>('http://localhost:8787/api/training-session').subscribe((data) => {
+    //   this.sessionsData = data;
+    // });
+  }
+
+  getAll(){
+    this.trainingSessions = this.trainingSessionService.getAll();
   }
 
   deleteData(id){
-    let apiURL = this.baseUrl + "/api/training-session/" +id;
+    // let apiURL = this.baseUrl + "/api/training-session/" +id;
 
-    let formData: any = {};
+    // let formData: any = {};
 
-    this.authService.sendDeleteRequest(apiURL, formData).subscribe(
-      (res: any) => {
-        this.router.navigate(["/dashboard/sessions"]);
+    // this.authService.sendDeleteRequest(apiURL, formData).subscribe(
+    //   (res: any) => {
+    //     this.router.navigate(["/dashboard/sessions"]);
 
-      }, (error) => {
-        console.log(error);
-      }
-    )
+    //   }, (error) => {
+    //     console.log(error);
+    //   }
+    // )
   }
 }
