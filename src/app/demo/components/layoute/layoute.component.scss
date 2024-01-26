@@ -1,0 +1,31 @@
+.container-f {
+    height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.content {
+    display: flex;
+    flex:2;
+    overflow: scroll;
+}
+
+
+
+.main {
+    // height: 300px;
+    flex:1;
+    
+    display: flex;
+    flex-direction: column;
+    overflow:scroll;
+    // flex:1;
+    
+}
+
+.top {
+    flex:1;
+}

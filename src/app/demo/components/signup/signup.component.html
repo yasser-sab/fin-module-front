@@ -1,0 +1,148 @@
+<!-- participant -->
+
+<!-- surname
+dateOfBirth
+city
+phoneNumber -->
+
+
+<!-- formateur -->
+<!-- remarks
+skillsList -->
+
+
+<!--  -->
+<!-- 
+name
+email
+username
+password -->
+
+<div class="container">
+    <select class="w-full md:w-30rem mb-5" style="padding:1rem" [(ngModel)]="isItTrainer">
+        <option value="" disabled>Select Users</option>
+        
+        <option value="true">Trainer</option>
+        <option value="false">Participant</option>
+    </select>
+</div>
+
+
+
+<div *ngIf="isItTrainer === 'true'" class="container">
+
+    <div class="form-group">
+        <input
+            type="text"
+            class="form-control item"
+            placeholder="Name"
+            [(ngModel)]="trainer.name"
+        />
+    </div>
+    <br>
+
+    <label for="">Skills :</label>
+    <br><br>
+    <div class="btn-group-vertical" role="group" aria-label="Basic checkbox toggle button group">
+
+        <div *ngFor="let skill of skills">
+            <input type="checkbox" class="btn-check" id="{{skill.name}}" autocomplete="off">
+            <label class="btn btn-outline-primary" for="{{skill.name}}">{{skill.name}}</label>
+            <br>
+        </div>
+    
+    </div>
+
+
+    <!-- <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+        <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+        <label class="btn btn-outline-primary" for="btncheck1">Checkbox 1</label>
+      
+        <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+        <label class="btn btn-outline-primary" for="btncheck2">Checkbox 2</label>
+      
+        <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+        <label class="btn btn-outline-primary" for="btncheck3">Checkbox 3</label>
+      </div> -->
+
+</div>
+
+<br>
+<div *ngIf="isItTrainer === 'false'" class="container">
+
+    <div class="form-group">
+        <input
+            type="text"
+            class="form-control item"
+            placeholder="Name"
+            [(ngModel)]="participant.name"
+        />
+    </div>
+    <br>
+
+    <div class="form-group">
+        <input
+            type="date"
+            class="form-control item"
+            placeholder="dateOfBirth"
+            [(ngModel)]="participant.dateOfBirth"
+        />
+    </div>
+    <br>
+    <div class="form-group">
+        <input
+            type="text"
+            class="form-control item"
+            placeholder="city"
+            [(ngModel)]="participant.city"
+        />
+    </div>
+    <br>
+    <div class="form-group">
+        <input
+            type="phone"
+            class="form-control item"
+            placeholder="Phone Number"
+            [(ngModel)]="participant.phoneNumber"
+        />
+    </div>
+    
+</div>
+
+<br>
+<div class="container">
+    <div class="form-group">
+        <input
+            type="text"
+            class="form-control item"
+            placeholder="user name"
+            [(ngModel)]="user.username"
+        />
+    </div>
+    <br>
+    <div class="form-group">
+        <input
+            type="text"
+            class="form-control item"
+            placeholder="email"
+            [(ngModel)]="user.email"
+        />
+    </div>
+    <br>
+    <div class="form-group">
+        <input
+            type="password"
+            class="form-control item"
+            placeholder="password"
+            [(ngModel)]="user.password"
+        />
+    </div>
+    <br>
+    
+    <br>
+    <div class="form-group">
+        <button type="button" class="btn btn-primary">
+            Sign up
+        </button>
+    </div>
+</div>

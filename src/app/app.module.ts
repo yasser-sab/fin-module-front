@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppLayoutModule } from './layout/app.layout.module';
@@ -12,13 +12,24 @@ import { IconService } from './demo/service/icon.service';
 import { NodeService } from './demo/service/node.service';
 import { PhotoService } from './demo/service/photo.service';
 import { authInterceptorProviders } from './_helpers/auth.interceptors';
+import { ProductDetailComponent } from './demo/components/product-detail/product-detail.component';
+import { LayouteComponent } from './demo/components/layoute/layoute.component';
+import { NavbarComponent } from './demo/components/navbar/navbar.component';
+import { HomeComponent } from './demo/components/home/home.component';
+import { LoginComponent } from './demo/components/login/login.component';
+import { FormsModule } from '@angular/forms';
+import { SignupComponent } from './demo/components/signup/signup.component';
+import { ProfileComponent } from './demo/components/profile/profile.component';
+
 @NgModule({
     declarations: [
-        AppComponent, NotfoundComponent
+        AppComponent, NotfoundComponent, ProductDetailComponent, LayouteComponent,NavbarComponent, HomeComponent, LoginComponent, SignupComponent, ProfileComponent
     ],
     imports: [
+        CommonModule,
         AppRoutingModule,
-        AppLayoutModule
+        AppLayoutModule,
+        FormsModule
     ],
     providers: [
         authInterceptorProviders,

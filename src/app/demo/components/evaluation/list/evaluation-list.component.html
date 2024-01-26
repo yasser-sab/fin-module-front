@@ -7,7 +7,9 @@
         </div>
         <div class="panel-heading mb-2">
             <button type="button" pButton pRipple label="New Evaluation"
-                routerLink="/dashboard/evaluation/create"></button>
+                routerLink="/dashboard/evaluation/create">
+                Ajouter
+            </button>
         </div>
         <div class="panel-body">
             <table class="table-latitude">
@@ -23,24 +25,27 @@
                     <th>Action</th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let company of myData">
-                        <td>{{ company.pedagogicalQuality }}</td>
-                        <td>{{ company.pace }}</td>
-                        <td>{{ company.courseSupport }}</td>
-                        <td>{{ company.practicalExercises }}</td>
-                        <td>{{ company.masteryOfSubject }}</td>
-                        <td>{{ company.participantId }}</td>
+                    <tr *ngFor="let evaluation of evaluations">
+                        <td>{{ evaluation.pedagogicalQuality }}</td>
+                        <td>{{ evaluation.pace }}</td>
+                        <td>{{ evaluation.courseSupport }}</td>
+                        <td>{{ evaluation.practicalExercises }}</td>
+                        <td>{{ evaluation.masteryOfSubject }}</td>
+                        <!-- <td>{{ company.participantId }}</td>
                         <td>{{ company.trainerId }}</td>
-                        <td>{{ company.trainingSessionId }}</td>
+                        <td>{{ company.trainingSessionId }}</td> -->
+                        <td></td>
+                        <td></td>
+                        <td></td>
 
                         <td>
                             <a style="cursor: pointer;" routerLink="/dashboard/evaluation/edit/{{company.id}}"
-                                title="Edit"><i class="pi pi-pencil"></i></a> &nbsp;&nbsp;
-                            <a style="cursor: pointer;" title="Delete"><i class="pi pi-trash"></i></a>
+                                title="Edit"><i class="fa fa-pencil"></i></a> &nbsp;&nbsp;
+                            <a style="cursor: pointer;" title="Delete"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
 
-                    <tr *ngIf="myData?.length === 0">
+                    <tr *ngIf="evaluations?.length === 0">
                         <td colspan="6" class="text-center">No company data available.</td>
                     </tr>
                 </tbody>

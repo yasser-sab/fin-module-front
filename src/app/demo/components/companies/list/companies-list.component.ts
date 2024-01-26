@@ -1,6 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import Company from 'src/app/demo/models/company';
+import TrainingRegistration from 'src/app/demo/models/trainingRegistration';
+import { CompanyService } from 'src/app/demo/service/company/company.service';
+import { TrainingRegistrationService } from 'src/app/demo/service/trainingRegistration/training-registration.service';
 
 @Component({
   selector: 'app-companies-list',
@@ -9,14 +13,17 @@ import { Router } from '@angular/router';
 })
 export class CompaniesListComponent {
 
-  companyData: any[] = []; 
+  companies: Company[] = []; 
 
-  constructor( public router: Router,private http:HttpClient) { }
+  constructor( public router: Router,private http:HttpClient,
+    private companyService:CompanyService
+    ) { }
 
   ngOnInit() {
+    this.companies = this.companyService.getAll();
     // Fetch training session data directly in the component
-    this.http.get<any[]>('http://localhost:8787/api/company').subscribe((data) => {
-      this.companyData = data;
-    });
+    // this.http.get<any[]>('http://localhost:8787/api/company').subscribe((data) => {
+    //   this.companyData = data;
+    // });
   }
 }

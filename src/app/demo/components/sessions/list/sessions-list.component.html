@@ -22,23 +22,23 @@
                     <th>Action</th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let sessions of sessionsData">
+                    <tr *ngFor="let sessions of trainingSessions">
                         <td>{{ sessions.title }}</td>
                         <td>{{ sessions.hours }}</td>
                         <td>{{ sessions.cost }}</td>
-                        <td>{{ sessions?.trainerResponseDto?.name }}</td>
-                        <td>{{ sessions?.companyRes?.name }}</td>
+                        <td>{{ sessions.trainer.name }}</td>
+                        <td>{{ sessions.company.name }}</td>
                         <td>{{ sessions.startDate | date }}</td>
                         <td>{{ sessions.endDate | date }}</td>
 
                         <td>
-                            <!-- <a style="cursor: pointer;" routerLink="/dashboard/sessions/edit/{{sessions.id}}"
-                                title="Edit"><i class="pi pi-pencil"></i></a> &nbsp;&nbsp; -->
-                            <a (click)="deleteData(sessions.id)" style="cursor: pointer;" title="Delete"><i class="pi pi-trash"></i></a>
+                            <a style="cursor: pointer;" routerLink="/dashboard/sessions/edit/{{sessions.id}}"
+                                title="Edit"><i class="fa fa-pencil"></i></a> &nbsp;&nbsp;
+                            <a (click)="deleteData(sessions.id)" style="cursor: pointer;" title="Delete"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
 
-                    <tr *ngIf="sessionsData?.length === 0">
+                    <tr *ngIf="trainingSessions?.length === 0">
                         <td colspan="6" class="text-center">No sessions data available.</td>
                     </tr>
                 </tbody>
