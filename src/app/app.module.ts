@@ -20,6 +20,7 @@ import { LoginComponent } from './demo/components/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { SignupComponent } from './demo/components/signup/signup.component';
 import { ProfileComponent } from './demo/components/profile/profile.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import { ProfileComponent } from './demo/components/profile/profile.component';
         CommonModule,
         AppRoutingModule,
         AppLayoutModule,
-        FormsModule
+        FormsModule,
+        HttpClientModule
     ],
     providers: [
         authInterceptorProviders,

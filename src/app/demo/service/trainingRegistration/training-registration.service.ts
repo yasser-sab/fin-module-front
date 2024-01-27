@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
 import TrainingRegistration from '../../models/trainingRegistration';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TrainingRegistrationService {
 
-  constructor() { }
+  constructor(
+    private http:HttpClient
+  ) { }
 
   getAll(){
     return [
@@ -78,5 +83,12 @@ export class TrainingRegistrationService {
         }
       }
     ]
+  }
+
+  sendRequest(trainingRegistration:TrainingRegistration)
+  :Observable<TrainingRegistration>{
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    
+    return this.http.post<TrainingRegistration>(environment.baseUrl+"/api/training-register",trainingRegistration,{headers});
   }
 }

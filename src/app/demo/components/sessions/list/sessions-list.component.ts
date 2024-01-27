@@ -28,7 +28,7 @@ export class SessionsListComponent {
   }
 
   getAll(){
-    this.trainingSessions = this.trainingSessionService.getAll();
+    // this.trainingSessions = this.trainingSessionService.getAll();
   }
 
   deleteData(id){

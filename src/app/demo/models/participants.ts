@@ -1,3 +1,6 @@
+import TrainingSession from "./trainingSession";
+import User from "./users";
+
 export default class Participant{
     id!:number;
     name!:string;
@@ -6,5 +9,6 @@ export default class Participant{
     city!:string;
     email!:string;
     phoneNumber!:string;
-    // user
+    user!:User;
+    trainingSessions:TrainingSession[]=[]
 }

@@ -5,12 +5,12 @@
                 <span class="fa fa-user-o"></span>
             </div>
             <h3 class="text-center mb-4">Have an account?</h3>
-            <!-- <form action="#" class="login-form"> -->
                 <div class="form-group">
                     <input
                         type="text"
                         class="form-control rounded-left"
                         placeholder="Username"
+                        [(ngModel)]="username"
                         required=""
                     />
                 </div>
@@ -20,32 +20,19 @@
                         class="form-control rounded-left"
                         placeholder="Password"
                         required=""
-                        [(ngModel)]="email"
+                        [(ngModel)]="password"
                     />
                 </div>
-                <!-- <div class="form-group d-md-flex">
-                    <div class="w-50">
-                        <label class="checkbox-wrap checkbox-primary"
-                            >Remember Me
-                            <input type="checkbox" checked="" />
-                            <span class="checkmark"></span>
-                        </label>
-                    </div>
-                    <div class="w-50 text-md-right">
-                        <a href="#">Forgot Password</a>
-                    </div>
-                </div> -->
+
                 <div class="form-group mt-2">
                     <button
                         type="submit"
                         class="btn btn-primary rounded submit p-3 px-5"
-                        [(ngModel)]="password"
                         (click)="login()"
                     >
                         login
                     </button>
                 </div>
-            <!-- </form> -->
         </div>
     </div>
 </div>

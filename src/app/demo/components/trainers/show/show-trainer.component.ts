@@ -34,7 +34,7 @@ export class ShowTrainerComponent implements OnInit {
     //   this.trainerData = data;
     // });
     
-    this.trainers=this.trainerService.getAll();
+    // this.trainers=this.trainerService.getAll();
   }
 
 

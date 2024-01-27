@@ -2,14 +2,14 @@ import Company from "./company";
 import Trainer from "./trainers";
 
 export default class TrainingSession{
-    id!:number;
+    id:number;
     title!:string;
     hours!:number;
     cost!:number;
     objectives!:string;
     program!:string;
-    trainer!:Trainer;
-    company!:Company;
-    startDate:number[]=[];
-    endDate:number[]=[];
+    trainerResponseDto:Trainer=new Trainer();
+    companyRes:Company=new Company();
+    endDate!:number[];
+    startDate!:number[];
 }

@@ -3,6 +3,11 @@ import User from '../models/users';
 import Privilege from '../models/privileges';
 import Autority from '../models/autority';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import Participant from '../models/participants';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import Trainer from '../models/trainers';
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +20,19 @@ export class UserService {
 
 
   constructor(
-    private router: Router
+    private router: Router,
+    private http:HttpClient
   ) { 
     this.loadUser();
+
     this.loadPrivilege();
+  }
+
+  login(user:User):Observable<User>{
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.post<User>(environment.baseUrl+"/api/user/login",user,{
+      headers
+    });
   }
 
   isItAdmin(){
@@ -28,17 +42,21 @@ export class UserService {
       return false;
 
     return this.user!.roles.find(ele=>{
-      return ele.name.toUpperCase()=="ADMIN";
+      return ele.id=1;
     })!=null;
 
 
     
   }
 
+  isItLogedIn(){
+    return this.user?true:false;
+  }
+
   loadPrivilege(){
 
     this.authorities={
-      "ADMIN":[
+      "ROLE_ADMIN":[
         {
           "name":"Dashboard",
           "path":"/dashboard",
@@ -68,7 +86,11 @@ export class UserService {
           "path":"/dashboard/participant",
         }
       ],
-      "ASSISTANT":[
+      "ROLE_ASSISTANT":[
+        {
+          "name":"Dashboard",
+          "path":"/dashboard",
+        },
         {
           "name":"Planifier une Formation",
           "path":"/dashboard/sessions",
@@ -78,30 +100,42 @@ export class UserService {
           "path":"/dashboard/companies",
         },
       ],
-      "INDIVIDU":[
+      "ROLE_PARTICIPANT":[
         {
           "name":"Mes Formation",
           "path":"",
         },
       ],
-      "FORMATEUR":[
+      "ROLE_TRAINER":[
         {
           "name":"Mes Formation",
           "path":"",
         },
       ],
-      "FORMATEUREXTERN":[
+      "ROLE_TRAINER_EXT":[
         {
           "name":"Mes Formation",
           "path":"",
         },
-        {
-          "name":"Creer une Formation",
-          "path":"",
-        },
+        // {
+        //   "name":"Creer une Formation",
+        //   "path":"",
+        // },
       ]
     }
 
+  }
+
+
+  saveParticipant(participant:Participant):Observable<any>{
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+    return this.http.post<any>(environment.baseUrl+"/api/participant/save",participant,{headers});
+  }
+
+  saveTrainer(trainer:Trainer):Observable<any>{
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.post<any>(environment.baseUrl+"/api/trainer",trainer,{headers});
   }
 
   loadUser(){

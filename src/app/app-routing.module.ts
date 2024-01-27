@@ -14,7 +14,7 @@ import { ProfileComponent } from './demo/components/profile/profile.component';
             { path: '', component:HomeComponent },
             { path: 'login', component:LoginComponent },
             { path: 'signup', component:SignupComponent },
-            { path: 'profile', component:ProfileComponent },
+            { path: 'profile/', component:ProfileComponent },
             {
                 path: 'dashboard', component: AppLayoutComponent,
                 children: [
