@@ -9,23 +9,20 @@ import { TrainingSessionService } from '../../service/trainingSession/training-s
 })
 export class HomeComponent implements OnInit {
 
-  trainingSessions:TrainingSession[]=[];
+  trainingSessions!:TrainingSession[];
 
   constructor(
     private trainingSessionService:TrainingSessionService
   ){
-
   }
   ngOnInit(): void {
-    this.getAllSessions();
 
-    console.log(this.trainingSessions);
+      this.trainingSessionService.getAll().subscribe(res=>{
+        this.trainingSessions=res;
+      })
+    
   }
 
-  getAllSessions(){
-    this.trainingSessionService.getAll().subscribe(res=>{
-      this.trainingSessions.push(res);
-    })
-  }
+  
 
 }

@@ -23,8 +23,7 @@ export class LayouteComponent {
       }
     });
 
-    console.log(this.userService.user.roles);
-    // this.userService.user.roles
+    
   }
 
 

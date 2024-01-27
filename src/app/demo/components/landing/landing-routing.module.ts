@@ -6,7 +6,7 @@ import { ProductDetailComponent } from '../product-detail/product-detail.compone
 @NgModule({
     imports: [RouterModule.forChild([
         { path: '', component: LandingComponent },
-        { path: 'product-details', component: ProductDetailComponent }
+        { path: 'product-details/:id', component: ProductDetailComponent }
     ])],
     exports: [RouterModule]
 })

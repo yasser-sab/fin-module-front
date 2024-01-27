@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import Trainer from '../../models/trainers';
 import { Observable } from 'rxjs';
-import TrainingSession from '../../models/trainingSession';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import TrainingSession from '../../models/trainingSession';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +14,12 @@ export class TrainingSessionService {
     private httpClient:HttpClient
   ) { }
 
-  getAll():Observable<TrainingSession>{
-    return this.httpClient.get<TrainingSession>(environment.baseUrl+"/api/training-session");
+  getAll():Observable<TrainingSession[]>{
+    return this.httpClient.get<TrainingSession[]>(environment.baseUrl+"/api/training-session");
 
+  }
+
+  getById(id:number){
+    return this.httpClient.get<TrainingSession>(environment.baseUrl+`/api/training-session/${id}`);
   }
 }

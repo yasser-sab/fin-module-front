@@ -49,6 +49,10 @@ export class UserService {
     
   }
 
+  isItLogedIn(){
+    return this.user?true:false;
+  }
+
   loadPrivilege(){
 
     this.authorities={
