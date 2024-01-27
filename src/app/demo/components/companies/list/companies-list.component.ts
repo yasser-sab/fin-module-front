@@ -20,7 +20,7 @@ export class CompaniesListComponent {
     ) { }
 
   ngOnInit() {
-    this.companies = this.companyService.getAll();
+    // this.companies = this.companyService.getAll();
     // Fetch training session data directly in the component
     // this.http.get<any[]>('http://localhost:8787/api/company').subscribe((data) => {
     //   this.companyData = data;

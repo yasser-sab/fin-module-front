@@ -18,7 +18,7 @@ export class TrainingRegistrationListComponent {
     ) { }
 
   ngOnInit() {
-    this.trainingRegistrations = this.trainingRegistrationService.getAll();
+    // this.trainingRegistrations = this.trainingRegistrationService.getAll();
     // Fetch training session data directly in the component
     // this.http.get<any[]>('http://localhost:8787/api/training-register').subscribe((data) => {
     //   this.trainingRegisterData = data;

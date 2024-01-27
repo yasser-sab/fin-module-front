@@ -22,6 +22,8 @@ export class LayouteComponent {
         this.itIsLoginPage = this.router.url.includes('login');
       }
     });
+
+    console.log(this.userService.user.roles);
     // this.userService.user.roles
   }
 

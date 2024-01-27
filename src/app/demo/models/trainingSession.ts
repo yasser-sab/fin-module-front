@@ -2,7 +2,7 @@ import Company from "./company";
 import Trainer from "./trainers";
 
 export default class TrainingSession{
-    id!:number;
+    id:number;
     title!:string;
     hours!:number;
     cost!:number;

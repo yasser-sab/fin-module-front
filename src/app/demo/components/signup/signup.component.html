@@ -21,9 +21,8 @@ password -->
 <div class="container">
     <select class="w-full md:w-30rem mb-5" style="padding:1rem" [(ngModel)]="isItTrainer">
         <option value="" disabled>Select Users</option>
-        
-        <option value="true">Trainer</option>
         <option value="false">Participant</option>
+        <option value="true">Trainer</option>
     </select>
 </div>
 
@@ -46,7 +45,7 @@ password -->
     <div class="btn-group-vertical" role="group" aria-label="Basic checkbox toggle button group">
 
         <div *ngFor="let skill of skills">
-            <input type="checkbox" class="btn-check" id="{{skill.name}}" autocomplete="off">
+            <input type="checkbox" class="btn-check" id="{{skill.name}}" autocomplete="off" [(ngModel)]="skill.checked">
             <label class="btn btn-outline-primary" for="{{skill.name}}">{{skill.name}}</label>
             <br>
         </div>
@@ -141,7 +140,7 @@ password -->
     
     <br>
     <div class="form-group">
-        <button type="button" class="btn btn-primary">
+        <button (click)="signup()" type="button" class="btn btn-primary">
             Sign up
         </button>
     </div>
