@@ -15,9 +15,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ShowTrainerComponent implements OnInit {
 
-  // trainerData: any[] = [];
   trainers:Trainer[]=[];
-  baseUrl = environment.baseUrl;
 
   constructor(public router: Router, private http: HttpClient, private authService: AuthService,
     private trainerService:TrainerService
@@ -25,17 +23,14 @@ export class ShowTrainerComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getListData();
+
+    this.trainerService.getAll().subscribe(res=>{
+      
+      this.trainers=res;
+    })
+
   }
 
-  getListData() {
-    // Fetch training session data directly in the component
-    // this.http.get<any[]>('http://localhost:8787/api/trainer').subscribe((data) => {
-    //   this.trainerData = data;
-    // });
-    
-    // this.trainers=this.trainerService.getAll();
-  }
 
 
   deleteData(id){

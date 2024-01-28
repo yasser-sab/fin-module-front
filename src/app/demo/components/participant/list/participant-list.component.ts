@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Participant from 'src/app/demo/models/participants';
 import { ParticipantService } from 'src/app/demo/service/participant/participant.service';
@@ -9,7 +9,7 @@ import { ParticipantService } from 'src/app/demo/service/participant/participant
   templateUrl: './participant-list.component.html',
   styleUrls: ['./participant-list.component.scss']
 })
-export class ParticipantListComponent {
+export class ParticipantListComponent implements OnInit {
   participants: Participant[] = []; 
 
   constructor( public router: Router,private http:HttpClient,
@@ -17,10 +17,10 @@ export class ParticipantListComponent {
     ) { }
 
   ngOnInit() {
-    // this.participants = this.participantService.getAll();
-    // Fetch training session data directly in the component
-    // this.http.get<any[]>('http://localhost:8787/api/participant').subscribe((data) => {
-    //   this.participantData = data;
-    // });
+
+    this.participantService.getAll().subscribe(res=>{
+      this.participants=res;
+    })
+    
   }
 }

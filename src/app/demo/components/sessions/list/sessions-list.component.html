@@ -22,19 +22,19 @@
                     <th>Action</th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let sessions of trainingSessions">
-                        <td>{{ sessions.title }}</td>
-                        <td>{{ sessions.hours }}</td>
-                        <td>{{ sessions.cost }}</td>
-                        <td>{{ sessions.trainer.name }}</td>
-                        <td>{{ sessions.company.name }}</td>
-                        <td>{{ sessions.startDate | date }}</td>
-                        <td>{{ sessions.endDate | date }}</td>
+                    <tr *ngFor="let session of trainingSessions">
+                        <td>{{ session.title }}</td>
+                        <td>{{ session.hours }}</td>
+                        <td>{{ session.cost }}</td>
+                        <td>{{ session.trainerResponseDto.name }}</td>
+                        <td>{{ session.companyRes.name }}</td>
+                        <td>{{ session.startDate | date }}</td>
+                        <td>{{ session.endDate | date }}</td>
 
                         <td>
-                            <a style="cursor: pointer;" routerLink="/dashboard/sessions/edit/{{sessions.id}}"
+                            <a style="cursor: pointer;" routerLink="/dashboard/sessions/edit/{{session.id}}"
                                 title="Edit"><i class="fa fa-pencil"></i></a> &nbsp;&nbsp;
-                            <a (click)="deleteData(sessions.id)" style="cursor: pointer;" title="Delete"><i class="fa fa-trash"></i></a>
+                            <a (click)="deleteData(session.id)" style="cursor: pointer;" title="Delete"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
 

@@ -13,15 +13,21 @@ import { TrainingRegistrationService } from 'src/app/demo/service/trainingRegist
 })
 export class CompaniesListComponent {
 
-  companies: Company[] = []; 
+  companies: Company[] = [];
 
-  constructor( public router: Router,private http:HttpClient,
+  constructor( 
+    public router: Router,
+    private http:HttpClient,
     private companyService:CompanyService
     ) { }
 
   ngOnInit() {
+
+
+    this.companyService.getAll().subscribe(res=>{
+      this.companies=res;
+    });
     // this.companies = this.companyService.getAll();
-    // Fetch training session data directly in the component
     // this.http.get<any[]>('http://localhost:8787/api/company').subscribe((data) => {
     //   this.companyData = data;
     // });
