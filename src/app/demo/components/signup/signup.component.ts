@@ -46,7 +46,7 @@ export class SignupComponent {
     }
     else{
       this.trainer.user=this.user;
-      this.trainer.skillsList=this.getCheckedSkills();
+      this.trainer.skills=this.getCheckedSkills();
 
       this.userService.saveTrainer(this.trainer).subscribe(res=>{
         alert(res!.message);

@@ -12,16 +12,18 @@ import { EvaluationService } from 'src/app/demo/service/evaluation/evaluation.se
 export class EvaluationListComponent {
   evaluations: Evaluation[] = []; 
 
-  constructor( public router: Router,private http:HttpClient,
+  constructor( 
+    public router: Router,
     private evaluationService:EvaluationService
     ) { }
 
   ngOnInit() {
-    this.evaluations=this.evaluationService.getAll();
-    // Fetch training session data directly in the component
-    // this.http.get<any[]>('http://localhost:8787/api/evaluation').subscribe((data) => {
-    //   this.myData = data;
-    // });
+    this.evaluationService.getAll().subscribe(res=>{
+      console.log(res);
+      this.evaluations=res;
+    })
+
+
   }
 
   

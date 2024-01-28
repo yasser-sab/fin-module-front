@@ -88,10 +88,6 @@ export class UserService {
       ],
       "ROLE_ASSISTANT":[
         {
-          "name":"Dashboard",
-          "path":"/dashboard",
-        },
-        {
           "name":"Planifier une Formation",
           "path":"/dashboard/sessions",
         },

@@ -18,18 +18,28 @@ export class TrainingRegistrationListComponent {
     ) { }
 
   ngOnInit() {
-    // this.trainingRegistrations = this.trainingRegistrationService.getAll();
-    // Fetch training session data directly in the component
-    // this.http.get<any[]>('http://localhost:8787/api/training-register').subscribe((data) => {
-    //   this.trainingRegisterData = data;
-    // });
+    this.trainingRegistrationService.getAll().subscribe(res=>{
+      this.trainingRegistrations=res;
+    })
   }
 
-  refuse(){
-    // console.log("dahkj");
+  deny(id:number){
+    this.trainingRegistrationService.deny(id).subscribe(res=>{
+      this.deleteById(Number(res));
+      alert(res);
+    })
   }
 
-  validate(){
-    // console.log("agjhb");
+  accept(id:number){
+    this.trainingRegistrationService.accept(id).subscribe(res=>{
+      this.deleteById(Number(res));
+      alert(res);
+    })
+  }
+
+  deleteById(id:number){
+    this.trainingRegistrations=this.trainingRegistrations.filter(ele=>{
+      return ele.id!=id;
+    })
   }
 }

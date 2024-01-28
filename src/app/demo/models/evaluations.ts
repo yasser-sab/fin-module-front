@@ -1,3 +1,7 @@
+import Participant from "./participants";
+import Trainer from "./trainers";
+import TrainingSession from "./trainingSession";
+
 export default class Evaluation{
     id:number;
     pedagogicalQuality:number;
@@ -5,7 +9,7 @@ export default class Evaluation{
     courseSupport:number;
     practicalExercises:number;
     masteryOfSubject:number;
-    // participant
-    // trainer
-    // trainingSession
+    // participant:Participant;
+    // trainer:Trainer
+    // trainingSession:TrainingSession
 }

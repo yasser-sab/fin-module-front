@@ -14,21 +14,18 @@ import { environment } from 'src/environments/environment';
 export class SessionsListComponent {
 
   trainingSessions: TrainingSession[] = []; 
-  // baseUrl = environment.baseUrl;
 
   constructor( public router: Router,private http:HttpClient,private authService: AuthService,private trainingSessionService:TrainingSessionService) { 
-    this.getAll();
+
   }
 
   ngOnInit() {
-    // Fetch training session data directly in the component
-    // this.http.get<any[]>('http://localhost:8787/api/training-session').subscribe((data) => {
-    //   this.sessionsData = data;
-    // });
-  }
-
-  getAll(){
-    // this.trainingSessions = this.trainingSessionService.getAll();
+    
+    this.trainingSessionService.getAll().subscribe(res=>{
+      console.log(res);
+      this.trainingSessions=res;
+    })
+    
   }
 
   deleteData(id){
