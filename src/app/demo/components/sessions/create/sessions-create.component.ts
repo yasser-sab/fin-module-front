@@ -1,8 +1,13 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import Company from 'src/app/demo/models/company';
+import Trainer from 'src/app/demo/models/trainers';
+import TrainingSession from 'src/app/demo/models/trainingSession';
 import { AuthService } from 'src/app/demo/service/auth.service';
+import { CompanyService } from 'src/app/demo/service/company/company.service';
 import { TrainerService } from 'src/app/demo/service/trainer/trainer.service';
+import { TrainingSessionService } from 'src/app/demo/service/trainingSession/training-session.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -12,17 +17,19 @@ import { environment } from 'src/environments/environment';
 })
 export class SessionsCreateComponent {
 
-  sessionsFrom: FormGroup;
-  trainerList: any = [];
-  companyList: any = [];
-  baseUrl = environment.baseUrl;
+  // sessionsFrom: FormGroup;
+  trainerList: Trainer[] = [];
+  companyList: Company[] = [];
+  trainingSession:TrainingSession=new TrainingSession();
 
   constructor(
-    private fb: FormBuilder,
+    // private fb: FormBuilder,
     private authService: AuthService,
     private route: ActivatedRoute,
     private router: Router,
-    private trainerService:TrainerService
+    private trainerService:TrainerService,
+    private companyService:CompanyService,
+    private trainingSessionService:TrainingSessionService
     ) {
     // this.sessionsFrom = this.fb.group({
     //   title: ['', Validators.required],
@@ -35,53 +42,29 @@ export class SessionsCreateComponent {
     //   endDate: ['', Validators.required],
     //   startDate: ['', Validators.required],
     // });
-    this.getAllTrainerList();
-    this.getAllCompanyList();
+
+    this.trainerService.getAll().subscribe(res=>{
+
+      this.trainerList=res;
+    });
+
+    this.companyService.getAll().subscribe(res=>{
+      this.companyList=res;
+    }) 
+    
   }
 
-  getAllTrainerList() {
-    // let apiURL = this.baseUrl + "/api/trainer";
-
-    // let queryParam: any = {};
-    // this.authService.sendGetRequest(apiURL, queryParam).subscribe(
-    //   (res: any) => {
-    //     this.trainerList = res;
-    //   }, (error) => {
-    //     console.log(error);
-    //   }
-    // )
-
-
+  save(){
+    this.trainingSessionService.save(this.trainingSession).subscribe(res=>{
+      alert(`${res} added succesfuly !`);
+    })
   }
 
-
-  getAllCompanyList() {
-    let apiURL = this.baseUrl + "/api/company";
-
-    let queryParam: any = {};
-    this.authService.sendGetRequest(apiURL, queryParam).subscribe(
-      (res: any) => {
-        this.companyList = res;
-      }, (error) => {
-        console.log(error);
-      }
-    )
-  }
 
 
   onSubmit() {
-    let apiURL = this.baseUrl + "/api/training-session";
 
-    let formData: any = {};
-    formData = this.sessionsFrom.value;
-    this.authService.sendPostRequest(apiURL, formData).subscribe(
-      (res: any) => {
-        this.router.navigate(["/dashboard/sessions"], { relativeTo: this.route });
 
-      }, (error) => {
-        console.log(error);
-      }
-    )
   }
 
 }

@@ -16,4 +16,12 @@ export class ParticipantService {
   getAll():Observable<Participant[]>{
     return this.http.get<Participant[]>(environment.baseUrl+"/api/participant");
   }
+
+  save(participant:Participant):Observable<any>{
+
+    
+
+
+    return this.http.post<any>(environment.baseUrl+"/api/participant/save",participant);
+  }
 }

@@ -16,8 +16,8 @@ export class TrainerService {
   getAll():Observable<Trainer[]>{
     return this.http.get<Trainer[]>(environment.baseUrl+"/api/trainer");
   }
-  save(trainer:Trainer){
-
+  save(trainer:Trainer):Observable<Trainer>{
+    return this.http.post<Trainer>(environment.baseUrl+"/api/trainer",trainer);
   }
   
 }

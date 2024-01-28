@@ -58,21 +58,13 @@ export class UserService {
     this.authorities={
       "ROLE_ADMIN":[
         {
-          "name":"Dashboard",
-          "path":"/dashboard",
-        },
-        {
-          "name":"Gestion Formation",
-          "path":"/dashboard/sessions",
-        },
-        {
           "name":"Gestion Formateur",
           "path":"dashboard/trainer",
         },
-        {
-          "name":"Gestion Assistant",
-          "path":"",
-        },
+        // {
+        //   "name":"Gestion Assistant",
+        //   "path":"",
+        // },
         {
           "name":"Demande Participant",
           "path":"/dashboard/training-registration",
@@ -87,6 +79,10 @@ export class UserService {
         }
       ],
       "ROLE_ASSISTANT":[
+        {
+          "name":"Dashboard",
+          "path":"/dashboard",
+        },
         {
           "name":"Planifier une Formation",
           "path":"/dashboard/sessions",

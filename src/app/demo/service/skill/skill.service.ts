@@ -1,32 +1,19 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import Skill from '../../models/skills';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SkillService {
 
-  constructor() { }
+  constructor(
+    private httpClient:HttpClient
+  ) { }
 
-  getAll(){
-    return [
-      {
-        id:1,
-        name:"java",
-        description:"desc1",
-        checked:false
-      },
-      {
-        id:2,
-        name:"c#",
-        description:"desc1",
-        checked:false
-      },
-      {
-        id:3,
-        name:"angular",
-        description:"desc1",
-        checked:false
-      },
-    ]
+  getAll():Observable<Skill[]>{
+    return this.httpClient.get<Skill[]>(environment.baseUrl+"/api/skill");
   }
 }
