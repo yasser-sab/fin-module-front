@@ -1,0 +1,64 @@
+<div>
+    <div>
+        <div class="w-full surface-card py-8 px-5 sm:px-8">
+            <a routerLink="/dashboard/sessions"><i class="pi pi-arrow-left" style="font-size: 1.5rem"></i></a>
+            <div class="text-center mb-5">
+                <div class="text-900 text-3xl font-medium m-3">
+                    <h1>Create Session</h1>
+                </div>
+            </div>
+
+            <div>
+                <label for="title" class="block text-900 text-xl font-medium mb-2">Title</label>
+                <input id="title" name="title" type="text" placeholder="Session Title" pInputText
+                    class="form-control mb-3" style="padding:1rem">
+
+
+                <label for="hours" class="block text-900 font-medium text-xl mb-2">Hours </label>
+                <input id="hours" name="hours" type="number" placeholder="Session Hours" pInputText
+                    class="form-control mb-3" style="padding:1rem">
+
+
+                <label for="cost" class="block text-900 font-medium text-xl mb-2">Cost </label>
+                <input id="cost" name="cost" type="number" placeholder="Session Cost" pInputText
+                    class="form-control mb-3" style="padding:1rem">
+
+                <label for="objectives" class="block text-900 font-medium text-xl mb-2">Objectives</label>
+                <input id="objectives" name="objectives" type="text" placeholder="Session Objectives"
+                    pInputText class="form-control mb-3" style="padding:1rem">
+
+                <label for="Program" class="block text-900 font-medium text-xl mb-2">Program</label>
+                <input id="Program" name="program" type="text" placeholder="Program" pInputText
+                    class="form-control mb-3" style="padding:1rem">
+
+                <label for="startDate" class="block text-900 font-medium text-xl mb-2">Start Date</label>
+                <input id="startDate" name="startDate" type="date" placeholder="Session Start Date"
+                    pInputText class="form-control mb-3" style="padding:1rem">
+
+                <label for="endDate" class="block text-900 font-medium text-xl mb-2">End Date</label>
+                <input id="endDate" name="endDate" type="date" placeholder="Session End Date" pInputText
+                    class="form-control mb-3" style="padding:1rem">
+
+                <label for="trainerId" class="block text-900 font-medium text-xl mb-2">Trainer</label>
+                <select id="trainerId" name="trainerId" class="form-control mb-3" style="padding:1rem">
+                    <option value="">Select Trainer</option>
+                    <option *ngFor="let option of trainerList" [value]="option.id">
+                        {{option.name}}
+                    </option>
+                </select>
+
+                
+                <label for="companyId" class="block text-900 font-medium text-xl mb-2">Company</label>
+                <select id="companyId" name="companyId" class="form-control mb-3" style="padding:1rem">
+                    <option value="">Select Company</option>
+                    <option *ngFor="let option of companyList" [value]="option.id">
+                        {{option.name}}
+                    </option>
+                </select>
+
+                <br>
+                <button type="submit" pButton pRipple label="Submit" class="btn btn-primary mb-3">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
