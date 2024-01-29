@@ -16,8 +16,9 @@ export class HomeComponent implements OnInit {
   ){
   }
   ngOnInit(): void {
-
+      
       this.trainingSessionService.getAll().subscribe(res=>{
+        console.log("test data session "+res);
         this.trainingSessions=res;
       })
     

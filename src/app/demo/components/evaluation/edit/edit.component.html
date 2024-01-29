@@ -1,4 +1,4 @@
-<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+<div>
     <div>
         <div class="w-full surface-card py-8 px-5 sm:px-8">
             <a routerLink="/dashboard/evaluation"><i class="pi pi-arrow-left" style="font-size: 1.5rem"></i></a>
@@ -13,52 +13,52 @@
 
                 <label for="pedagogicalQuality" class="block text-900 font-medium text-xl mb-2">Pedagogical
                     Quality</label>
-                <input id="pedagogicalQuality" formControlName="pedagogicalQuality" type="number"
+                <input id="pedagogicalQuality" name="pedagogicalQuality" type="number"
                     placeholder="Pedagogical Quality" pInputText class="form-control mb-3" style="padding:1rem">
 
                 <label for="pace" class="block text-900 font-medium text-xl mb-2">Pace</label>
-                <input id="pace" formControlName="pace" type="number" placeholder="Pace" pInputText
+                <input id="pace" name="pace" type="number" placeholder="Pace" pInputText
                     class="form-control mb-3" style="padding:1rem">
 
                 <label for="courseSupport" class="block text-900 font-medium text-xl mb-2">Course Support</label>
-                <input id="courseSupport" formControlName="courseSupport" type="number" placeholder="Course Support"
+                <input id="courseSupport" name="courseSupport" type="number" placeholder="Course Support"
                     pInputText class="form-control mb-3" style="padding:1rem">
 
                 <label for="practicalExercises" class="block text-900 font-medium text-xl mb-2">Practical
                     Exercises</label>
-                <input id="practicalExercises" formControlName="practicalExercises" type="number"
+                <input id="practicalExercises" name="practicalExercises" type="number"
                     placeholder="Practical Exercises" pInputText class="form-control mb-3" style="padding:1rem">
 
                 <label for="masteryOfSubject" class="block text-900 font-medium text-xl mb-2">Mastery Of Subject</label>
-                <input id="masteryOfSubject" formControlName="masteryOfSubject" type="number" placeholder="Mastery Of Subject" pInputText
+                <input id="masteryOfSubject" name="masteryOfSubject" type="number" placeholder="Mastery Of Subject" pInputText
                     class="form-control mb-3" style="padding:1rem">
 
 
                 <label for="participantId" class="block text-900 font-medium text-xl mb-2">Participant</label>
-                <select id="participantId" formControlName="participantId" class="form-control mb-3"
+                <select id="participantId" name="participantId" class="form-control mb-3"
                     style="padding:1rem">
                     <option value="">Select Participant</option>
-                    <option *ngFor="let option of participantList" [value]="option.id">
+                   <!-- <option *ngFor="let option of participantList" [value]="option.id">
                         {{option.name}}
-                    </option>
+                    </option>-->
                 </select>
 
                 <label for="trainingSessionId" class="block text-900 font-medium text-xl mb-2">Training Session</label>
-                <select id="trainingSessionId" formControlName="trainingSessionId" class="form-control mb-3"
+                <select id="trainingSessionId" name="trainingSessionId" class="form-control mb-3"
                     style="padding:1rem">
                     <option value="">Select Session</option>
-                    <option *ngFor="let option of sessionList" [value]="option.id">
+                    <!--<option *ngFor="let option of sessionList" [value]="option.id">
                         {{option.title}}
-                    </option>
+                    </option>-->
                 </select>
 
                 <label for="trainerId" class="block text-900 font-medium text-xl mb-2">Trainer</label>
-                <select id="trainerId" formControlName="trainerId" class="form-control mb-3"
+                <select id="trainerId" name="trainerId" class="form-control mb-3"
                     style="padding:1rem">
                     <option value="">Select Trainer</option>
-                    <option *ngFor="let option of trainerList" [value]="option.id">
+                     <!--<option *ngFor="let option of trainerList" [value]="option.id">
                         {{option.name}}
-                    </option>
+                    </option>-->
                 </select>
 
 
@@ -69,4 +69,4 @@
             </div>
         </div>
     </div>
-</form>
+</div>

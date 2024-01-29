@@ -3,50 +3,40 @@
         <div class="w-full surface-card py-8 px-5 sm:px-8">
             <a routerLink=""><i class="pi pi-arrow-left" style="font-size: 1.5rem"></i></a>
             <div class="text-center mb-5">
-                <div class="text-900 text-3xl font-medium mb-3">Create Participant</div>
+                <div class="text-900 text-3xl font-medium m-3">
+                    <h1>Create Participant</h1>
+                </div>
             </div>
 
             <div>
                 <label for="name" class="block text-900 text-xl font-medium mb-2">Name</label>
-                <input id="name" type="text" placeholder="Participant Name" pInputText
-                    class="w-full md:w-30rem mb-5" 
-                    [(ngModel)]="participant.name"
-                    style="padding:1rem">
+                <input id="name" type="text" placeholder="Participant Name" pInputText [(ngModel)]="participant.name"
+                class="form-control mb-3" style="padding:1rem">
 
-                <label for="surname" class="block text-900 text-xl font-medium mb-2">Surname</label>
-                <input id="surname" type="text" placeholder="Surname" pInputText
-                        class="w-full md:w-30rem mb-5" 
-                        [(ngModel)]="participant.surname"
-                        style="padding:1rem">
+                    <label for="surname" class="block text-900 text-xl font-medium mb-2">Surname</label>
+                    <input id="surname" type="text" placeholder="Surname" pInputText [(ngModel)]="participant.surname"
+                    class="form-control mb-3" style="padding:1rem">
 
                 <label for="email" class="block text-900 font-medium text-xl mb-2">Email</label>
-                <input id="email" type="text" placeholder="Participant Email" pInputText
-                    class="w-full md:w-30rem mb-5" 
-                    [(ngModel)]="participant.email"
-                    style="padding:1rem">
+                <input id="email" type="text" placeholder="Participant Email" pInputText [(ngModel)]="participant.email" class="form-control mb-3"
+                    class="w-full md:w-30rem mb-5" style="padding:1rem">
 
                 <label for="phoneNumber" class="block text-900 font-medium text-xl mb-2">Phone Number</label>
                 <input id="phoneNumber" type="text" placeholder="Participant Phone Number"
-                    pInputText class="w-full md:w-30rem mb-5"
-                    [(ngModel)]="participant.phoneNumber"
-                    style="padding:1rem">
+                    pInputText class="form-control mb-3" [(ngModel)]="participant.phoneNumber" style="padding:1rem">
 
 
                 <label for="dateOfBirth" class="block text-900 font-medium text-xl mb-2">Date Of Birth</label>
-                <input id="dateOfBirth" type="date" placeholder="" pInputText
-                    class="w-full md:w-30rem mb-5" 
-                    [(ngModel)]="participant.dateOfBirth"
-                    style="padding:1rem">
+                <input id="dateOfBirth" type="date" placeholder="" pInputText [(ngModel)]="participant.dateOfBirth"
+                class="form-control mb-3" style="padding:1rem">
 
                 <label for="city" class="block text-900 font-medium text-xl mb-2">City</label>
-                <input id="city" type="text" placeholder="Participant City" pInputText
-                    class="w-full md:w-30rem mb-5" 
-                    [(ngModel)]="participant.city"
-                    style="padding:1rem">
+                <input id="city" type="text" placeholder="Participant City" pInputText [(ngModel)]="participant.city"
+                class="form-control mb-3" style="padding:1rem">
 
 
                 <br>
-                <button type="submit" pButton pRipple label="Submit" class="" (click)="save()"></button>
+                <button type="submit" pButton pRipple label="Submit" class="btn btn-primary mb-3" (click)="save()"></button>
             </div>
         </div>
     </div>
