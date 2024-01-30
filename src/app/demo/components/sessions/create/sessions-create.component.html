@@ -1,4 +1,5 @@
-<form [formGroup]="sessionsFrom" (ngSubmit)="onSubmit()">
+<!-- [formGroup]="sessionsFrom" -->
+<div>
     <div>
         <div class="w-full surface-card py-8 px-5 sm:px-8">
             <a routerLink="/dashboard/sessions"><i class="pi pi-arrow-left" style="font-size: 1.5rem"></i></a>
@@ -10,46 +11,47 @@
 
             <div>
                 <label for="title" class="block text-900 text-xl font-medium mb-2">Title</label>
-                <input id="title" formControlName="title" type="text" placeholder="Session Title" pInputText
-                    class="form-control mb-3" style="padding:1rem">
+                <input id="title" type="text" placeholder="Session Title" pInputText [(ngModel)]="trainingSession.title"
+                class="form-control mb-3" style="padding:1rem">
 
 
                 <label for="hours" class="block text-900 font-medium text-xl mb-2">Hours </label>
-                <input id="hours" formControlName="hours" type="number" placeholder="Session Hours" pInputText
-                    class="form-control mb-3" style="padding:1rem">
+                <input id="hours" type="number" placeholder="Session Hours" pInputText
+                class="form-control mb-3" [(ngModel)]="trainingSession.hours" style="padding:1rem">
 
 
                 <label for="cost" class="block text-900 font-medium text-xl mb-2">Cost </label>
-                <input id="cost" formControlName="cost" type="number" placeholder="Session Cost" pInputText
-                    class="form-control mb-3" style="padding:1rem">
+                <input id="cost" type="number" placeholder="Session Cost" pInputText [(ngModel)]="trainingSession.cost"
+                class="form-control mb-3" style="padding:1rem">
 
                 <label for="objectives" class="block text-900 font-medium text-xl mb-2">Objectives</label>
-                <input id="objectives" formControlName="objectives" type="text" placeholder="Session Objectives"
-                    pInputText class="form-control mb-3" style="padding:1rem">
+                <input id="objectives" type="text" placeholder="Session Objectives"
+                    pInputText class="form-control mb-3" [(ngModel)]="trainingSession.objectives"  style="padding:1rem">
 
                 <label for="Program" class="block text-900 font-medium text-xl mb-2">Program</label>
-                <input id="Program" formControlName="program" type="text" placeholder="Program" pInputText
-                    class="form-control mb-3" style="padding:1rem">
+                <input id="Program" type="text" placeholder="Program" pInputText [(ngModel)]="trainingSession.program"
+                class="form-control mb-3" style="padding:1rem">
 
                 <label for="startDate" class="block text-900 font-medium text-xl mb-2">Start Date</label>
-                <input id="startDate" formControlName="startDate" type="date" placeholder="Session Start Date"
-                    pInputText class="form-control mb-3" style="padding:1rem">
+                <input id="startDate" type="date" placeholder="Session Start Date"
+                    pInputText class="form-control mb-3" [(ngModel)]="trainingSession.startDate" style="padding:1rem">
 
                 <label for="endDate" class="block text-900 font-medium text-xl mb-2">End Date</label>
-                <input id="endDate" formControlName="endDate" type="date" placeholder="Session End Date" pInputText
-                    class="form-control mb-3" style="padding:1rem">
+                <input id="endDate" type="date" placeholder="Session End Date" pInputText
+                [(ngModel)]="trainingSession.endDate"    
+                class="form-control mb-3" style="padding:1rem">
 
                 <label for="trainerId" class="block text-900 font-medium text-xl mb-2">Trainer</label>
-                <select id="trainerId" formControlName="trainerId" class="form-control mb-3" style="padding:1rem">
+                <select id="trainerId" [(ngModel)]="trainingSession.trainerId"  class="form-control mb-3" style="padding:1rem">
                     <option value="">Select Trainer</option>
                     <option *ngFor="let option of trainerList" [value]="option.id">
                         {{option.name}}
                     </option>
                 </select>
-
+                
                 
                 <label for="companyId" class="block text-900 font-medium text-xl mb-2">Company</label>
-                <select id="companyId" formControlName="companyId" class="form-control mb-3" style="padding:1rem">
+                <select id="companyId" [(ngModel)]="trainingSession.companyId" class="form-control mb-3" style="padding:1rem">
                     <option value="">Select Company</option>
                     <option *ngFor="let option of companyList" [value]="option.id">
                         {{option.name}}
@@ -57,8 +59,8 @@
                 </select>
 
                 <br>
-                <button type="submit" pButton pRipple label="Submit" class="btn btn-primary mb-3">Submit</button>
+                <button type="submit" pButton pRipple label="Submit" class="btn btn-primary mb-3" (click)="save()"></button>
             </div>
         </div>
     </div>
-</form>
+</div>

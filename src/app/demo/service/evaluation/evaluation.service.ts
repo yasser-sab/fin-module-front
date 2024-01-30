@@ -17,4 +17,17 @@ export class EvaluationService {
     
     return this.http.get<Evaluation[]>(environment.baseUrl+"/api/evaluation");
   }
+
+  save(evaluation:Evaluation):Observable<any>{
+    return this.http.post<any>(environment.baseUrl+'/api/evaluation',evaluation);
+  }
+
+  getById(id:number):Observable<Evaluation>{
+    return this.http.get<Evaluation>(environment.baseUrl+`/api/evaluation/${id}`);
+  }
+
+  update(id:number,evaluation:Evaluation):Observable<any>{
+    return this.http.put<any>(environment.baseUrl+`/api/evaluation/${id}`,evaluation);
+  }
+
 }

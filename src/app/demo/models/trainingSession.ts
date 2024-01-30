@@ -10,6 +10,8 @@ export default class TrainingSession{
     program!:string;
     trainerResponseDto:Trainer=new Trainer();
     companyRes:Company=new Company();
+    trainerId!:number;
+    companyId!:number;
     endDate!:number[];
     startDate!:number[];
 }

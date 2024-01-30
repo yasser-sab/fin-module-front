@@ -26,7 +26,9 @@ export class SignupComponent {
     private userService:UserService,
     private router:Router
     ){
-    this.skills = this.skillService.getAll();
+    this.skillService.getAll().subscribe(ele=>{
+      this.skills=ele;
+    });
   }
 
   getCheckedSkills(){
@@ -46,7 +48,7 @@ export class SignupComponent {
     }
     else{
       this.trainer.user=this.user;
-      this.trainer.skills=this.getCheckedSkills();
+      this.trainer.skillsList=this.getCheckedSkills();
 
       this.userService.saveTrainer(this.trainer).subscribe(res=>{
         alert(res!.message);

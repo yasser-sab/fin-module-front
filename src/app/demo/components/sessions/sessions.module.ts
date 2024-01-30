@@ -10,14 +10,14 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { PasswordModule } from 'primeng/password';
-// import { EditComponent } from './edit/edit.component';
+import {SessionsEditComponent} from './edit/edit.component';
 
 
 @NgModule({
   declarations: [
     SessionsListComponent,
-    SessionsCreateComponent
-    // EditComponent
+    SessionsCreateComponent,
+    SessionsEditComponent
   ],
   imports: [
     CommonModule,

@@ -1,47 +1,49 @@
-<form [formGroup]="trainerForm" (ngSubmit)="onSubmit()">
+<div>
     <div>
         <div class="w-full surface-card py-8 px-5 sm:px-8">
             <a routerLink="/dashboard/trainer"><i class="pi pi-arrow-left" style="font-size: 1.5rem"></i></a>
             <div class="text-center mb-5">
-                <div class="text-900 text-3xl font-medium mb-3">Edit Trainer</div>
+                <div class="text-900 text-3xl font-medium m-3">
+                    <h1>Edit Trainer</h1>
+                </div>
             </div>
 
             <div>
                 <label for="name" class="block text-900 text-xl font-medium mb-2">Name</label>
-                <input id="name" formControlName="name" type="text" placeholder="Trainer Name" pInputText
-                    class="w-full md:w-30rem mb-5" style="padding:1rem">
+                <input id="name" type="text" placeholder="Trainer Name" pInputText class="form-control mb-3" [(ngModel)]="trainer.name" style="padding:1rem">
 
                 <label for="email" class="block text-900 font-medium text-xl mb-2">Email</label>
-                <input id="email" formControlName="email" type="text" placeholder="Trainer Email" pInputText
-                    class="w-full md:w-30rem mb-5" style="padding:1rem">
+                <input id="email" type="text" placeholder="Trainer Email" pInputText class="form-control mb-3" [(ngModel)]="trainer.email" style="padding:1rem">
 
                 <label for="remarks" class="block text-900 font-medium text-xl mb-2">Remarks</label>
-                <input id="remarks" formControlName="remarks" type="text" placeholder="Remarks" pInputText
-                    class="w-full md:w-30rem mb-5" style="padding:1rem">
+                <input id="remarks" type="text" placeholder="Remarks" pInputText class="form-control mb-3" [(ngModel)]="trainer.remarks" style="padding:1rem">
 
-
-
-                <!-- normal html checkbox skills -->
-
-                <!--                 
+                
+                
+               <!-- normal html checkbox skills -->
+               
+                
                     <label class="block text-900 font-medium text-xl mb-2">Skills</label>
                     <div *ngFor="let skill of skills">
-                        <input
-                          type="checkbox"
-                          id="{{ skill?.id }}"
-                          name="skills"
-                          [value]="skill?.name"
-                          formControlName="skills"
-                          (change)="selectedSkill($event, $event.target.value)"
-                          [checked]="skill?.id === 1 && skill?.name === 'Java'"
-                        />
-                        <label for="{{ skill?.id }}">{{ skill?.name }}</label>
-                      </div> -->
+                        <!-- (change)="selectedSkill($event, $event.target.value)" -->
+                        <!-- {{skillsHas(skill.id)}} -->
+                        <!-- <ng-container *ngIf="skillsHas(skill.id)">
+                            <input type="checkbox" id="{{ skill.id }}" 
+                            name="skills" checked >
+                            <label for="{{ skill.id }}">{{ skill.name }}</label>
+                        </ng-container> -->
 
+                        <!-- <ng-container *ngIf="!skillsHas(skill.id)"> -->
+                            <input type="checkbox" id="{{ skill.id }}" 
+                            name="skills" >
+                            <label for="{{ skill.id }}">{{ skill.name }}</label>
+                        <!-- </ng-container> -->
+                      </div>
+             
 
                 <br>
-                <button type="submit" pButton pRipple label="Update" class=""></button>
+                <button type="button" pButton pRipple label="Submit" class="btn btn-primary mb-3" (click)="update()"></button>
             </div>
         </div>
     </div>
-</form>
+</div>

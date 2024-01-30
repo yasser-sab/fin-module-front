@@ -17,6 +17,22 @@ export class ParticipantService {
     return this.http.get<Participant[]>(environment.baseUrl+"/api/participant");
   }
 
+  save(participant:Participant):Observable<any>{
+
+    
+
+
+    return this.http.post<any>(environment.baseUrl+"/api/participant/save",participant);
+  }
+
+  update(id:number,participant:Participant):Observable<any>{
+    return this.http.put<any>(environment.baseUrl+`/api/participant/${id}`,participant);
+  }
+
+  getById(id:number):Observable<Participant>{
+    return this.http.get<Participant>(environment.baseUrl+`/api/participant/${id}`);
+  }
+
   getByUserId(id: number):Observable<Participant>{
       return this.http.get<Participant>(`${environment.baseUrl}/api/participant/ByUserId/${id}`);
   }

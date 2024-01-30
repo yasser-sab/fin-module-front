@@ -9,7 +9,7 @@ export default class Evaluation{
     courseSupport:number;
     practicalExercises:number;
     masteryOfSubject:number;
-    // participant:Participant;
-    // trainer:Trainer
-    // trainingSession:TrainingSession
+    participantId:number;
+    trainerId:number;
+    trainingSessionId:number;
 }

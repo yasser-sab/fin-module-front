@@ -9,6 +9,6 @@ export default class Participant{
     city!:string;
     email!:string;
     phoneNumber!:string;
-    user!:User;
+    user:User=new User();
     trainingSessions:TrainingSession[]=[]
 }

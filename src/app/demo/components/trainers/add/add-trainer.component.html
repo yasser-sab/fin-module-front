@@ -1,4 +1,4 @@
-<form [formGroup]="trainerForm" (ngSubmit)="onSubmit()">
+<div>
     <div>
         <div class="w-full surface-card py-8 px-5 sm:px-8">
             <a routerLink="/dashboard/trainer"><i class="pi pi-arrow-left" style="font-size: 1.5rem"></i></a>
@@ -10,13 +10,13 @@
 
             <div>
                 <label for="name" class="block text-900 text-xl font-medium mb-2">Name</label>
-                <input id="name" formControlName="name" type="text" placeholder="Trainer Name" pInputText class="form-control mb-3" style="padding:1rem">
+                <input id="name" type="text" placeholder="Trainer Name" pInputText class="form-control mb-3" [(ngModel)]="trainer.name" style="padding:1rem">
 
                 <label for="email" class="block text-900 font-medium text-xl mb-2">Email</label>
-                <input id="email" formControlName="email" type="text" placeholder="Trainer Email" pInputText class="form-control mb-3" style="padding:1rem">
+                <input id="email" type="text" placeholder="Trainer Email" pInputText class="form-control mb-3" [(ngModel)]="trainer.email" style="padding:1rem">
 
                 <label for="remarks" class="block text-900 font-medium text-xl mb-2">Remarks</label>
-                <input id="remarks" formControlName="remarks" type="text" placeholder="Remarks" pInputText class="form-control mb-3" style="padding:1rem">
+                <input id="remarks" type="text" placeholder="Remarks" pInputText class="form-control mb-3" [(ngModel)]="trainer.remarks" style="padding:1rem">
 
                 
                 
@@ -25,14 +25,16 @@
                 
                     <label class="block text-900 font-medium text-xl mb-2">Skills</label>
                     <div *ngFor="let skill of skills">
-                        <input type="checkbox" id="{{ skill?.id }}" name="skills" [value]="skill?.name" formControlName="skills" (change)="selectedSkill($event, $event.target.value)">
-                        <label for="{{ skill?.id }}">{{ skill?.name }}</label>
+                        <!-- (change)="selectedSkill($event, $event.target.value)" -->
+                        <input type="checkbox" id="{{ skill.id }}" 
+                        name="skills" [value]="skill.name" [(ngModel)]="skill.checked" >
+                        <label for="{{ skill.id }}">{{ skill.name }}</label>
                       </div>
              
 
                 <br>
-                <button type="submit" pButton pRipple label="Submit" class="btn btn-primary mb-3"></button>
+                <button type="submit" pButton pRipple label="Submit" class="btn btn-primary mb-3" (click)="save()"></button>
             </div>
         </div>
     </div>
-</form>
+</div>
