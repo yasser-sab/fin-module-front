@@ -32,4 +32,10 @@ export class ParticipantService {
   getById(id:number):Observable<Participant>{
     return this.http.get<Participant>(environment.baseUrl+`/api/participant/${id}`);
   }
+
+  getByUserId(id: number):Observable<Participant>{
+      return this.http.get<Participant>(`${environment.baseUrl}/api/participant/ByUserId/${id}`);
+  }
+
+
 }
