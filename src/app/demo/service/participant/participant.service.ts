@@ -16,4 +16,10 @@ export class ParticipantService {
   getAll():Observable<Participant[]>{
     return this.http.get<Participant[]>(environment.baseUrl+"/api/participant");
   }
+
+  getByUserId(id: number):Observable<Participant>{
+      return this.http.get<Participant>(`${environment.baseUrl}/api/participant/ByUserId/${id}`);
+  }
+
+
 }

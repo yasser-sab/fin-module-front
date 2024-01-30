@@ -14,7 +14,7 @@ import { ProfileComponent } from './demo/components/profile/profile.component';
             { path: '', component:HomeComponent },
             { path: 'login', component:LoginComponent },
             { path: 'signup', component:SignupComponent },
-            { path: 'profile/', component:ProfileComponent },
+            { path: 'profile', component:ProfileComponent },
             {
                 path: 'dashboard', component: AppLayoutComponent,
                 children: [
@@ -39,7 +39,7 @@ import { ProfileComponent } from './demo/components/profile/profile.component';
             { path: '', loadChildren: () => import('./demo/components/landing/landing.module').then(m => m.LandingModule) },
             { path: 'participant', loadChildren: () => import('./demo/components/participant/participant.module').then(m => m.ParticipantModule) },
 
-            
+
             { path: 'notfound', component: NotfoundComponent },
             { path: '**', redirectTo: '/notfound' },
         ], { scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled', onSameUrlNavigation: 'reload' })
