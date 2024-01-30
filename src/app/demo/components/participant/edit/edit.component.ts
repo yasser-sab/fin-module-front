@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import Participant from 'src/app/demo/models/participants';
 import { AuthService } from 'src/app/demo/service/auth.service';
+import { ParticipantService } from 'src/app/demo/service/participant/participant.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -9,41 +11,36 @@ import { environment } from 'src/environments/environment';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss']
 })
-export class ParticipantCreateComponent {
-  myForm: FormGroup;
-  baseUrl = environment.baseUrl;
+export class ParticipantEditComponent implements OnInit {
+
+  participant:Participant=new Participant();
 
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
+    private participantService:ParticipantService,
     private route: ActivatedRoute,
     private router: Router,) {
-    this.myForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
-      city: ['', Validators.required],
-      surname: ['', Validators.required],
-      dateOfBirth: ['', Validators.required],
-    });
-
 
 
   }
+  ngOnInit(): void {
+    let id:number=Number(this.route.snapshot.paramMap.get('id'));
+
+    this.participantService.getById(id).subscribe(ele=>{
+      this.participant=ele;
+    })
+  }
+
+  update(){
+    this.participantService.update(this.participant.id,this.participant).subscribe(res=>{
+      alert(res);
+      this.router.navigate(['/dashboard/participant']);
+    });
+  }
 
   onSubmit() {
-    let apiURL = this.baseUrl + "/api/participant";
-
-    let formData: any = {};
-    formData = this.myForm.value;
-    this.authService.sendPostRequest(apiURL, formData).subscribe(
-      (res: any) => {
-        this.router.navigate([""], { relativeTo: this.route });
-
-      }, (error) => {
-        console.log(error);
-      }
-    )
+   
   }
 
 }

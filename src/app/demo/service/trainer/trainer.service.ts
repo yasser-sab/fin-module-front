@@ -19,5 +19,13 @@ export class TrainerService {
   save(trainer:Trainer):Observable<Trainer>{
     return this.http.post<Trainer>(environment.baseUrl+"/api/trainer",trainer);
   }
+
+  getById(id:number):Observable<Trainer>{
+    return this.http.get<Trainer>(environment.baseUrl+`/api/trainer/${id}`);
+  }
+
+  update(id:number,trainer:Trainer):Observable<any>{
+    return this.http.put<any>(environment.baseUrl+`/api/trainer/${id}`,trainer);
+  }
   
 }

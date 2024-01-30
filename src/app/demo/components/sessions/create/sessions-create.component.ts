@@ -56,7 +56,10 @@ export class SessionsCreateComponent {
 
   save(){
     this.trainingSessionService.save(this.trainingSession).subscribe(res=>{
+
       alert(`${res} added succesfuly !`);
+
+      this.router.navigate(['/dashboard/sessions']);
     })
   }
 

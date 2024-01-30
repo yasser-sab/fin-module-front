@@ -8,6 +8,7 @@ export default class Trainer{
     email!:string;
     remarks!:string;
     skillsList:Skill[]=[];
+    skills:Skill[]=[];
     user:User;
     trainingSessions:TrainingSession[]=[];
 }

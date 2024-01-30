@@ -33,13 +33,9 @@
                         <td>{{ evaluation.courseSupport }}</td>
                         <td>{{ evaluation.practicalExercises }}</td>
                         <td>{{ evaluation.masteryOfSubject }}</td>
-                        <!-- <td>{{ company.participantId }}</td>
-                        <td>{{ company.trainerId }}</td>
-                        <td>{{ company.trainingSessionId }}</td> -->
-                        <td></td>
-                        <td></td>
-                        <td></td>
-
+                        <td>{{ getTrainerById(evaluation.trainerId).name }}</td>
+                        <td>{{ getParticipantById(evaluation.participantId).name }}</td>
+                        <td>{{ getTrainingSessionById(evaluation.trainingSessionId).title }}</td>
                         <td>
                             <a style="cursor: pointer;" routerLink="/dashboard/evaluation/edit/{{evaluation.id}}"
                                 title="Edit"><i class="fa fa-pencil"></i></a> &nbsp;&nbsp;

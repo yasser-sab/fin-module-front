@@ -22,7 +22,6 @@ export class SessionsListComponent {
   ngOnInit() {
     
     this.trainingSessionService.getAll().subscribe(res=>{
-      console.log(res);
       this.trainingSessions=res;
     })
     

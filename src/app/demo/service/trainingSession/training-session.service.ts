@@ -30,4 +30,10 @@ export class TrainingSessionService {
       headers
     })
   }
+
+  update(id:number,trainingSession:TrainingSession):Observable<any>{
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    
+    return this.httpClient.put<any>(environment.baseUrl+`/api/training-session/${id}`,trainingSession);
+  }
 }

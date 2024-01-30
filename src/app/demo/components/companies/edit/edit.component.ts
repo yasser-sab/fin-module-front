@@ -1,49 +1,52 @@
-// import { Component } from '@angular/core';
-// import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-// import { ActivatedRoute, Router } from '@angular/router';
-// import { AuthService } from 'src/app/demo/service/auth.service';
-// import { environment } from 'src/environments/environment';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import Company from 'src/app/demo/models/company';
+import { AuthService } from 'src/app/demo/service/auth.service';
+import { CompanyService } from 'src/app/demo/service/company/company.service';
+import { environment } from 'src/environments/environment';
 
-// @Component({
-//   selector: 'app-companies-create',
-//   templateUrl: './edit.component.html',
-//   styleUrls: ['./edit.component.scss']
-// })
-// export class CompaniesCreateComponent {
+@Component({
+  selector: 'app-companies-create',
+  templateUrl: './edit.component.html',
+  styleUrls: ['./edit.component.scss']
+})
+export class CompaniesEditComponent implements OnInit {
 
 //   myForm: FormGroup;
 //   baseUrl = environment.baseUrl;
+    company:Company=new Company();
+  constructor(
+    // private fb: FormBuilder,
+    // private authService: AuthService,
+    private companyService:CompanyService,
+    private route: ActivatedRoute,
+    private router: Router,) {
+    // this.myForm = this.fb.group({
+    //   name: ['', Validators.required],
+    //   email: ['', Validators.required],
+    //   phoneNumber: ['', Validators.required],
+    //   address: ['', Validators.required],
+    //   url: ['', Validators.required],
+    // });
 
-//   constructor(
-//     private fb: FormBuilder,
-//     private authService: AuthService,
-//     private route: ActivatedRoute,
-//     private router: Router,) {
-//     this.myForm = this.fb.group({
-//       name: ['', Validators.required],
-//       email: ['', Validators.required],
-//       phoneNumber: ['', Validators.required],
-//       address: ['', Validators.required],
-//       url: ['', Validators.required],
-//     });
 
 
+  }
+    ngOnInit(): void {
+        const id:number=Number(this.route.snapshot.paramMap.get('id'));
+        this.companyService.getById(id).subscribe(res=>{
+            this.company=res;
+        })
 
-//   }
 
-//   onSubmit() {
-//     let apiURL = this.baseUrl + "/api/company";
+    }
 
-//     let formData: any = {};
-//     formData = this.myForm.value;
-//     this.authService.sendPostRequest(apiURL, formData).subscribe(
-//       (res: any) => {
-//         this.router.navigate(["/dashboard/companies"], { relativeTo: this.route });
+    update(){
+        this.companyService.update(this.company.id,this.company).subscribe(res=>{
+            alert(res);
+            this.router.navigate(['/dashboard/companies']);
+        });
+    }
 
-//       }, (error) => {
-//         console.log(error);
-//       }
-//     )
-//   }
-
-// }
+}

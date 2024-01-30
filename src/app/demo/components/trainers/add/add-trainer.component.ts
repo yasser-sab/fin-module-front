@@ -37,7 +37,8 @@ export class AddTrainerComponent {
     private route: ActivatedRoute,
     private skillService:SkillService,
     private trainerService:TrainerService,
-    private router: Router,) {
+    private router: Router
+    ) {
     // this.trainerForm = this.fb.group({
     //   name: ['', Validators.required],
     //   email: ['', Validators.required],
